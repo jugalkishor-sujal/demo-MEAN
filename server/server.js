@@ -21,7 +21,7 @@ app.use(bodyParser.json());// parse application/json
 mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
 
 
-
+// test route to make sure everything is working (accessed at GET http://localhost:2100/api)
 // middleware to use for all requests
 router.use(function (req, res, next) {
     // Website you wish to allow to connect
@@ -43,6 +43,14 @@ router.use(function (req, res, next) {
     
     next(); // make sure we go to the next routes and don't stop here
 });
+router.get('/', function (req, res) {
+    res.json({ message: 'Welcome to jogging REST API!' });
+});
+// all of our routes will be prefixed with /api
+app.use('/', router);
+
+
+// REGISTER OUR ROUTES -------------------------------
 // more routes for our API will happen here
 // ---------------------USER-------------------------------
 require('./app/route-user.js')(app);// on routes in app/route-user.js that end in /user
@@ -50,15 +58,6 @@ require('./app/route-user.js')(app);// on routes in app/route-user.js that end i
 // ---------------------JOGGING-------------------------------
 require('./app/route-jogging.js')(app);// on routes in app/route-jogging.js that end in /jogging
 
-
-// test route to make sure everything is working (accessed at GET http://localhost:2100/api)
-router.get('/', function (req, res) {
-    res.json({ message: 'Welcome to jogging REST API!' });
-});
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
-app.use('/', router);
 
 // START THE SERVER
 // =============================================================================

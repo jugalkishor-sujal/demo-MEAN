@@ -1,4 +1,4 @@
-﻿// app/models/user.js
+﻿// app/models/jogging.js
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;

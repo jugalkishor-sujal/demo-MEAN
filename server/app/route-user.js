@@ -1,6 +1,27 @@
 ﻿// app/route-user.js
 var User = require('./models/user');
 module.exports = function (app) {
+    // middleware to use for all requests
+    app.use(function (req, res, next) {
+        // Website you wish to allow to connect
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        // Request methods you wish to allow
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        // Request headers you wish to allow
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        // Set to true if you need the website to include cookies in the requests sent
+        // to the API (e.g. in case you use sessions)
+        res.setHeader('Access-Control-Allow-Credentials', true);
+        res.JSON = true;
+        // do logging    
+        console.log(req.method);
+        console.log('Body');
+        console.log(req.body);
+        console.log('Parameters');
+        console.log(req.params);
+
+        next(); // make sure we go to the next routes and don't stop here
+    });
     // create a user (accessed at POST http://localhost:2100/users)
     app.post('/users', function (req, res) {
         console.log('in post');
@@ -19,7 +40,7 @@ module.exports = function (app) {
             res.json({ message: 'User created!' });
             res.send();
         });
-    })
+    });
 
     // get all the users (accessed at GET http://localhost:2100/users)
     app.get('/users', function (req, res) {
@@ -40,7 +61,7 @@ module.exports = function (app) {
                 res.send(err);
             res.json(user);
         });
-    })
+    });
 
     // update the user with this id (accessed at PUT http://localhost:2100/users/:user_id)
     app.put('/users/:user_id', function (req, res) {
@@ -65,7 +86,7 @@ module.exports = function (app) {
             });
 
         });
-    })
+    });
 
     // delete the user with this id (accessed at DELETE http://localhost:2100/users/:user_id)
     app.delete('/users/:user_id', function (req, res) {
@@ -79,5 +100,4 @@ module.exports = function (app) {
             res.json({ message: 'Successfully deleted' });
         });
     });
-    return app;
 };
