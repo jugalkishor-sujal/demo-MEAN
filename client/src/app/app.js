@@ -2,8 +2,10 @@ angular.module( 'ngJogging', [
   'templates-app',
   'templates-common',
   'ngJogging.login',
+  'ngJogging.register',
   'ngJogging.home',
   'ngJogging.add-jogging',
+  'ngJogging.RsRedirect',
   'ui.router',
   'ui.bootstrap'
 ])

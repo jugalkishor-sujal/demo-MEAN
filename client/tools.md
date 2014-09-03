@@ -170,7 +170,7 @@ other libraries so that we can manage all of them in one simple place.
 
 ```js
 {
-  "name": "ng-boilerplate",
+  "name": "ng-Jogging",
   "version": "0.2.0-SNAPSHOT",
   "devDependencies": {
     "angular": "~1.0.7",

@@ -18,14 +18,6 @@ angular.module( 'ngJogging.home', [
 
 .controller('HomeCtrl', function HomeController($window, $rootScope, $scope, $location, $dialog, $joggingAPIService) {
 
-    $scope.openDialog = function (opts) {
-        var d = $dialog.dialog(opts);
-        return {
-            dialog: d,
-            promise: d.open()
-        };
-    };
-
     $scope.joggingList = $scope.joggingList || [];
     var request = { "name": $scope.current.name };
     $joggingAPIService.GetJoggingList(request).success(function (response) {
@@ -46,6 +38,7 @@ angular.module( 'ngJogging.home', [
         $location.path("/add-jogging");
     };
     $scope.deleteJogging = function (joggingID, title) {
+
         $scope.openDialog({
             backdrop: true,
             keyboard: true,
@@ -61,10 +54,10 @@ angular.module( 'ngJogging.home', [
                     dialog.close();
                 };
                 $scope.ok = function () {
-                    var request = { _id: joggingID };
-                    $joggingAPIService.DeleteJogging(request).success(function (response) {
+                    $joggingAPIService.DeleteJogging(joggingID).success(function (response) {
                         if (response !== null) {
-                            $location.path("/RsRedirect");
+                            dialog.close();
+                            //$location.path("/RsRedirect");
                         }
                     }).error(function (err) {
                         alert(err);
@@ -74,5 +67,12 @@ angular.module( 'ngJogging.home', [
             }]
         });
 
+    };
+    $scope.openDialog = function (opts) {
+        var d = $dialog.dialog(opts);
+        return {
+            dialog: d,
+            promise: d.open()
+        };
     };
 });

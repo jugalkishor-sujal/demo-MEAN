@@ -4,7 +4,7 @@
 						<div class="well no-padding">
 							<div class="smart-form client-form">
 								<header>
-									Sign In
+									New User Register
 								</header>
 
 								<fieldset>
@@ -21,20 +21,20 @@
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
 											<input type="password" name="password" ng-model="password">
 											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
-										<div class="note">
-											<a href="forgotpassword.html">Forgot password?</a>
-										</div>
+										
 									</section>
-
-									<section>
-										<label class="checkbox">
-											<input type="checkbox" name="remember" checked="">
-											<i></i>Stay signed in</label>
+                                    <section>
+										<label class="label">Re-Type Password</label>
+										<label class="input"> <i class="icon-append fa fa-lock"></i>
+											<input type="password" name="password2" ng-model="password2">
+											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your re-type password</b> </label>
+										
 									</section>
+									<span ng-show="$scope.password!==$scope.password2" class="error">{{$scope.error}}</span>
 								</fieldset>
 								<footer>
-									<button type="submit" class="btn btn-primary" ng-click="doLogin()">
-										Sign in
+									<button type="submit" class="btn btn-primary" ng-click="doRegister()">
+										Register
 									</button>
 								</footer>
 							</div>

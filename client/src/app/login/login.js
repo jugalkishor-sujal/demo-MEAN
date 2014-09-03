@@ -40,4 +40,7 @@ angular.module('ngJogging.login', [
             alert(err);
         });
     };
+    $scope.doNewRegister = function () {
+        $location.path("/register");
+    };
     });
