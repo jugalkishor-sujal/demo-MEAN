@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="ngJogging" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+  </head>
+  <body>
+         <!--[if IE 8]>
+			<h3>Your browser is out of date, please update your browser by going to <a href='http://www.microsoft.com/download'>www.microsoft.com/download</a></h3>
+		<![endif]-->
+    <header id="header" data-ng-include="'header.tpl.html'"></header>
+    <!-- END HEADER -->
+
+    <!-- Left panel : Navigation area -->
+    <!-- Note: This width of the aside area can be adjusted through LESS variables -->
+    <aside id="left-panel"><span data-ng-include="'left-panel.tpl.html'"></span></aside>
+    <!-- END NAVIGATION -->
+    <div class="container" ui-view="main"></div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          
+          <p>
+            (c) 2014 <a href="http://www.airsons.com">Jugal Kishor</a>. 
+            <a href="http://github.com/jugalkishor-sujal/demo-MEAN/fork_select">Fork this</a>   
+          </p>
+        </div>
+      </div>
+    </footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="assets/js/libs/jquery-2.0.2.min.js"><\/script>');
+        }
+    </script>
+      
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script>
+        if (!window.jQuery.ui) {
+            document.write('<script src="assets/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+        }
+    </script>
+  </body>
+</html>

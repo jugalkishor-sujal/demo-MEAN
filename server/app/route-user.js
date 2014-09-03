@@ -13,12 +13,12 @@ module.exports = function (app) {
         // to the API (e.g. in case you use sessions)
         res.setHeader('Access-Control-Allow-Credentials', true);
         res.JSON = true;
-        // do logging    
-        console.log(req.method);
-        console.log('Body');
-        console.log(req.body);
-        console.log('Parameters');
-        console.log(req.params);
+        //// do logging    
+        //console.log(req.method);
+        //console.log('Body');
+        //console.log(req.body);
+        //console.log('Parameters');
+        //console.log(req.params);
 
         next(); // make sure we go to the next routes and don't stop here
     });
@@ -98,6 +98,16 @@ module.exports = function (app) {
                 res.send(err);
 
             res.json({ message: 'Successfully deleted' });
+        });
+    });
+
+    // get the user with that id (accessed at GET http://localhost:2100/users/:user_id)
+    app.post('/users/login', function (req, res) {
+        var payLoad = req.body;
+        User.count({ name: payLoad.name, password: payLoad.password }, function (err, user) {
+            if (err)
+                res.send(err);
+            res.json({ "result": user });
         });
     });
 };

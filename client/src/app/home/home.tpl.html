@@ -1,0 +1,54 @@
+<div class="col-lg-16 col-md-16 col-sm-16 col-xs-16">    
+    <div class="">
+       <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-7">
+                          <div class="col-lg-6">
+                        <a ng-click="addJogging()" class="btn btn-primary col-lg-12"><t>Add New Jogging</t></a></div>
+                    </div>
+                </div>
+            </div>
+<br/>
+
+
+        <div class="col-lg-12">
+            
+            <div class="row well" style="height: 20px; line-height: 5px">
+                <div class="col-lg-12">
+                    <span class="col-lg-2 text-center"><b>Date</b></span>
+                    <span class="col-lg-2 text-center"><b>Distance</b></span>
+                    <span class="col-lg-2 text-center"><span class="col-lg-offset-1 col-lg-11"><b><t>Time</t> </b></span></span>
+                    <span class="col-lg-2 text-center"><span class="col-lg-offset-1 col-lg-11"><b><t>Average</t> </b></span></span>
+                    <span class="col-lg-4"><span class="col-lg-offset-3 col-lg-11"><b><t>Actions</t> </b></span></span>
+                </div>
+            </div>
+            <br />
+         
+                <div class="row form-group" ng-repeat="joggingItem in joggingList">
+                    <div class="col-lg-2 text-center">
+
+                        <span>{{joggingItem.date}} </span>
+                    </div>
+                    <div class="col-lg-2 text-center">
+
+                        <span>{{joggingItem.distance}} </span>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                        <span>{{joggingItem.time}}</span>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                        <span >{{joggingItem.distance/joggingItem.time}}</span>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                       
+                        <span class="col-lg-10 btn-group">
+                            <a ng-click="editJogging(joggingItem._id)" class="btn btn-default col-lg-5"><t>edit</t></a>
+                            <a ng-click="deleteJogging(joggingItem._id)" class="btn btn-default col-lg-7"><t>delete</t></a>
+                        </span>
+                    </div>
+                   
+                </div>
+            </div>
+    </div>
+</div>

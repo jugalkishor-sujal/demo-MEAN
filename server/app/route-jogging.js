@@ -94,4 +94,14 @@ module.exports = function (app) {
             res.json({ message: 'Successfully deleted' });
         });
     });
+
+    // get the user with that id (accessed at GET http://localhost:2100/joggings/list)
+    app.post('/joggings/list', function (req, res) {
+        var payLoad = req.body;
+        Jogging.find({ name: payLoad.name}, function (err, result) {
+            if (err)
+                res.send(err);
+            res.json(result);
+        });
+    });
 };
