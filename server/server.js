@@ -18,7 +18,14 @@ var router = express.Router(); 				// get an instance of the express Router
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));// parse application/x-www-form-urlencoded
 app.use(bodyParser.json());// parse application/json
-mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
+
+// connect to mongoDB database
+mongoose.connect(database.url, function (err) {
+    if (err) {
+        console.error('\x1b[31m', 'Could not connect to MongoDB!');
+        console.log(err);
+    }
+});
 
 
 // test route to make sure everything is working (accessed at GET http://localhost:2100/api)
