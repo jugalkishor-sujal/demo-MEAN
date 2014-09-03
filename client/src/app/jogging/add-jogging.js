@@ -45,6 +45,7 @@ angular.module('ngJogging.add-jogging', [
         $location.path("/home");
     };    
     $scope.save = function () {
+        $scope.Joggings.name = $scope.current.name;
         if ($scope.current.EditResource === 1) {
             $joggingAPIService.UpdateJogging($scope.current.joggingID, $scope.Joggings).success(function (response) {
                 if (response !== null) {

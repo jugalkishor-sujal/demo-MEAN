@@ -16,7 +16,7 @@ angular.module( 'ngJogging.home', [
   });
 })
 
-.controller('HomeCtrl', function HomeController($window, $rootScope, $scope, $location, $joggingAPIService) {
+.controller('HomeCtrl', function HomeController($window, $rootScope, $scope, $location, $dialog, $joggingAPIService) {
 
     $scope.openDialog = function (opts) {
         var d = $dialog.dialog(opts);

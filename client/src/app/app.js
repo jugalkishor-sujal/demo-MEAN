@@ -4,7 +4,8 @@ angular.module( 'ngJogging', [
   'ngJogging.login',
   'ngJogging.home',
   'ngJogging.add-jogging',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
