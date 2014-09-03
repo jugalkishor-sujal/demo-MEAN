@@ -38,17 +38,32 @@ angular.module('ngJogging.add-jogging', [
             alert(err);
         });
     }
+    else {
+        $scope.Joggings = {};
+    }
     $scope.back = function () {
         $location.path("/home");
     };    
     $scope.save = function () {
-
-        $joggingAPIService.GetJogging($scope.current.joggingID, $scope.Joggings).success(function (response) {
-            if (response !== null) {
-                $location.path("/home");
-            }
-        }).error(function (err) {
-            alert(err);
-        });
+        if ($scope.current.EditResource === 1) {
+            $joggingAPIService.UpdateJogging($scope.current.joggingID, $scope.Joggings).success(function (response) {
+                if (response !== null) {
+                    alert(response.message);
+                    $location.path("/home");
+                }
+            }).error(function (err) {
+                alert(err);
+            });
+        }
+        else {
+            $joggingAPIService.AddJogging($scope.Joggings).success(function (response) {
+                if (response !== null) {
+                    alert(response.message);
+                    $location.path("/home");
+                }
+            }).error(function (err) {
+                alert(err);
+            });
+        }
     };
 });

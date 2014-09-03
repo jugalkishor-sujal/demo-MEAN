@@ -21,6 +21,7 @@ angular.module('joggingAPIService', [
                     data: requestPayLoad
                 });
             },
+
             GetJogging: function (jogging_id) {                
                 return $http({
                     method: 'GET',
@@ -41,6 +42,14 @@ angular.module('joggingAPIService', [
                 return $http({
                     method: 'PUT',
                     url: serverUrl + "joggings/" + jogging_id,
+                    data: payLoad
+                });
+
+            },
+            AddJogging: function (payLoad) {
+                return $http({
+                    method: 'POST',
+                    url: serverUrl + "joggings",
                     data: payLoad
                 });
 
