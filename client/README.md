@@ -1,4 +1,4 @@
-# [ngJogging](http://JugalNice.github.com/ng-Jogging) [![Build Status](https://api.travis-ci.org/jugalkishor-sujal/demo-MEAN.png?branch=v0.3.2-release)](https://travis-ci.org/jugalkishor-sujal/demo-MEAN)
+# [ngJogging](http://jugalkishor-sujal.github.com/ng-Jogging) [![Build Status](https://api.travis-ci.org/jugalkishor-sujal/demo-MEAN.png?branch=v0.3.2-release)](https://travis-ci.org/jugalkishor-sujal/demo-MEAN)
 
 An opinionated kickstarter for [AngularJS](http://angularjs.org) projects.
 
@@ -9,7 +9,7 @@ An opinionated kickstarter for [AngularJS](http://angularjs.org) projects.
 Install Node.js and then:
 
 ```sh
-$ git clone git://github.com/JugalNice/ng-Jogging
+$ git clone git://github.com/jugalkishor-sujal/ng-Jogging
 $ cd ng-Jogging
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
@@ -149,7 +149,7 @@ from GitHub, or merge the branch into your existing repository. Assuming you're
 starting from scratch, simply clone this repository using git:
 
 ```sh
-$ git clone git://github.com/JugalNice/ng-Jogging my-project-name
+$ git clone git://github.com/jugalkishor-sujal/ng-Jogging my-project-name
 $ cd my-project-name
 ```
 
@@ -363,7 +363,7 @@ Naturally, I am open to all manner of ideas and suggestions. See the
 
 ### To Do
 
-See the [issues list](http://github.com/JugalNice/ng-Jogging/issues). And
+See the [issues list](http://github.com/jugalkishor-sujal/ng-Jogging/issues). And
 feel free to submit your own!
 
 ### Contributing
