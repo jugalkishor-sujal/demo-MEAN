@@ -3,6 +3,7 @@ angular.module( 'ngJogging', [
   'templates-common',
   'ngJogging.login',
   'ngJogging.home',
+  'ngJogging.add-jogging',
   'ui.router'
 ])
 

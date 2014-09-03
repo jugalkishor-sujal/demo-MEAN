@@ -1,0 +1,15 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>{{title}}</h3>
+        </div>
+        <div class="modal-body">
+            <p ng-if="!error">{{message}}</p>
+            <p ng-if="error" class="error">{{error}}</p>
+        </div>
+        <div class="modal-footer" ng-if="btn">
+            <button ng-click="ok()" class="btn btn-danger uppercase">{{btnlabel}}</button>
+            <button class="btn btn-warning" ng-click="close()">{{btnCancel}}</button>
+        </div>
+    </div>
+</div>

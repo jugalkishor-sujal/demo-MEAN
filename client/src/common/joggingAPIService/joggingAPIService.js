@@ -6,15 +6,8 @@ angular.module('joggingAPIService', [
         serverUrl = supplementalApiUri;
 
         return {
-            test: function (request) {
-                return $http({
-                    method: 'GET',
-                    url: serverUrl,
-                    data: request
-                });
-            },
+           
             CheckLogin: function (requestPayLoad) {
-                alert(serverUrl + "users/login");
                 return $http({
                     method: 'POST',
                     url: serverUrl + "users/login",
@@ -28,22 +21,29 @@ angular.module('joggingAPIService', [
                     data: requestPayLoad
                 });
             },
-            GetUserFiles: function (Message) {
-                //var requestData = JSON.parse(Message);
-                var response = {};
+            GetJogging: function (jogging_id) {                
                 return $http({
-                    method: 'POST',
-                    url: serverUrl + "user_filesList",
-                    data: Message
+                    method: 'GET',
+                    url: serverUrl + "joggings/"+jogging_id,
+                    data: {}
                 });
-                //    .then(function (result) {
-                //    response = result;
-                //    //return response;
-                //}, function (error) {
-                //    response = error;
-                    
-                //});
-                //return response;
+               
+            },
+            DeleteJogging: function (jogging_id) {
+                return $http({
+                    method: 'DELETE',
+                    url: serverUrl + "joggings/" + jogging_id,
+                    data: {}
+                });
+
+            },
+            UpdateJogging: function (jogging_id,payLoad) {
+                return $http({
+                    method: 'PUT',
+                    url: serverUrl + "joggings/" + jogging_id,
+                    data: payLoad
+                });
+
             }
         };
     } ]);

@@ -17,6 +17,15 @@ angular.module( 'ngJogging.home', [
 })
 
 .controller('HomeCtrl', function HomeController($window, $rootScope, $scope, $location, $joggingAPIService) {
+
+    $scope.openDialog = function (opts) {
+        var d = $dialog.dialog(opts);
+        return {
+            dialog: d,
+            promise: d.open()
+        };
+    };
+
     $scope.joggingList = $scope.joggingList || [];
     var request = { "name": $scope.current.name };
     $joggingAPIService.GetJoggingList(request).success(function (response) {
@@ -26,4 +35,44 @@ angular.module( 'ngJogging.home', [
     }).error(function (err) {
         alert(err);
     });
+
+    $scope.addJogging = function () {
+        $scope.current.EditResource = 0;
+        $location.path("/add-jogging");
+    };
+    $scope.editJogging = function (joggingID) {
+        $scope.current.EditResource = 1;
+        $scope.current.joggingID = joggingID;
+        $location.path("/add-jogging");
+    };
+    $scope.deleteJogging = function (joggingID, title) {
+        $scope.openDialog({
+            backdrop: true,
+            keyboard: true,
+            backdropClick: true,
+            templateUrl: 'jogging/modal/modal.tpl.html',
+            controller: ['$scope', '$location', 'dialog', function ($scope, $location, dialog) {
+                $scope.title = 'Jogging ' + title + '.';
+                $scope.message = 'Do you want to delete Jogging ' + title + ' ?';
+                $scope.btn = true;
+                $scope.btnlabel = 'ok';
+                $scope.btnCancel = 'cancel';
+                $scope.close = function () {
+                    dialog.close();
+                };
+                $scope.ok = function () {
+                    var request = { _id: joggingID };
+                    $joggingAPIService.DeleteJogging(request).success(function (response) {
+                        if (response !== null) {
+                            $location.path("/RsRedirect");
+                        }
+                    }).error(function (err) {
+                        alert(err);
+                    });
+                };
+
+            }]
+        });
+
+    };
 });

@@ -1,0 +1,50 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    
+    <div class="">
+        <legend>          
+            <h2>
+                <t>Add Jogging</t>
+            </h2>
+        </legend>
+        <div class="row form-group">
+            <div class="col-lg-2 col-lg-offset-1">
+                <t>Date</t>
+                :                
+            </div>
+            <div class="col-lg-5 col-lg-offset-1">
+                <input type="text" class="form-control" ng-model="Joggings.date" validate nospace="true" noempty="true" placeholder="Jogging Date">
+            </div>
+        </div>
+         <div class="row form-group">
+            <div class="col-lg-2 col-lg-offset-1">
+                <t>Distance</t>
+                :                
+            </div>
+            <div class="col-lg-5 col-lg-offset-1">
+                <input type="text" class="form-control" ng-model="Joggings.distance" validate nospace="true" noempty="true" placeholder="Jogging Distance">
+            </div>
+        </div>
+
+ <div class="row form-group">
+            <div class="col-lg-2 col-lg-offset-1">
+                <t>Time</t>
+                :                
+            </div>
+            <div class="col-lg-5 col-lg-offset-1">
+                <input type="text" class="form-control" ng-model="Joggings.time" validate nospace="true" noempty="true" placeholder="Jogging Time(In Minutes)">
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <span class="col-lg-2 col-lg-offset-1"></span>
+            <span class="col-lg-5 col-lg-offset-1">
+                <a trigger-check="true" ng-click="save()" class="btn btn-success">
+                    <t>Update</t>
+                </a>
+                <a ng-click="back()" class="btn btn-default">
+                    <t>Cancel</t>
+                </a>
+            </span>
+        </div>
+
+    </div>
+</div>
